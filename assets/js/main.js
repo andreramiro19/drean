@@ -1,31 +1,4 @@
 /* ==================== SCROLL ANIMATION ==================== */
-// const header = document.getElementById("header")
-// const homeSection = document.getElementById('home');
-// const homeTitle = document.getElementById('home-title');
-// const homeDescription = document.getElementById('home-description');
-
-// window.addEventListener('scroll', () => {
-//     const {scrollTop} = document.documentElement
-
-//     if (scrollTop > 200) {
-//         homeSection.style.background = "var(--purple)";
-//         homeTitle.style.color = "var(--white2)";
-//     }
-//     else {
-//         homeSection.style.background = "var(--white2)";
-//         homeTitle.style.color = "var(--purple)";
-//     }
-// })
-
-// var test = document.getElementById('line1');
-// window.addEventListener('scroll', function(e) {
-//   // http://stackoverflow.com/a/28633515/962603
-//   var scroll = window.pageYOffset || document.documentElement.scrollTop ||
-//                 document.body.scrollTop || 0;
-//   test.style.opacity = Math.max(0, Math.min(1, -scroll / 400 + 2));
-
-// });
-
 const checkpoint = 2000;
 
 function changeOpacity(className) {
@@ -48,6 +21,30 @@ window.addEventListener("scroll", () => {
     
   });
 
+/* ==================== CANVAS ==================== */
+window.addEventListener('load', function () {
+    var
+      img = new Image,
+      ctx = document.getElementById('myCanvas').getContext('2d');
+    
+    img.src = 'capitan_meadows_yosemite_national_park.jpg';
+    img.addEventListener('load', function () {
+  
+      var interval = setInterval(function() {
+        var x = 0, y = 0;
+        
+        return function () {
+          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          ctx.drawImage(img, x, y);
+  
+          x += 1;
+          if (x > ctx.canvas.width) {
+            x = 0;
+          }
+        };
+      }(), 1000/40);
+    }, false);
+  }, false);
 
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),

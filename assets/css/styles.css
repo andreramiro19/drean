@@ -407,12 +407,70 @@ h4 {
     padding: 260px 0;
 }
 
+.home__first__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.home__first__line {
+    font-size: 6rem;
+}
+
 .container__fluid {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.testeNuvem, .testeNuvem2 {
+    -webkit-animation: cloud 4.5s ease-in-out infinite alternate;
+    width: 85%;
+    position: absolute;
+    top: calc(var(--vh, 1vh)*10);
+}
+
+@keyframes cloud {
+    0%   { bottom:0px;}
+    100%  { top:50px;}
+  }
+
+.testeNuvem {
+    transform: translateX(-30%);
+}
+
+.testeNuvem2 {
+    transform: translateX(45%);
+    animation-delay: 1s;
+}
+
+.testeNuvem3 {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .home__first__line {
+        font-size: 2.4rem;
+    }
+    .testeNuvem, .testeNuvem2 {
+        display: none;
+    }
+    .testeNuvem3 {
+        display: block;
+        -webkit-animation: cloud2 3.5s ease-in-out infinite alternate;
+        width: 95%;
+        position: absolute;
+        transform: translateX(55%);
+        transition: all ease 2s;
+    }
+
+    @keyframes cloud2 {
+        0%   { right:0px;}
+        100%  { left:20px;}
+      }
 }
 
 @media (min-width: 768px) {
